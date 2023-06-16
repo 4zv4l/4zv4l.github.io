@@ -24,6 +24,6 @@ But I still can code in Python, Bash, Powershell, C, SQL, PHP and Go :)
 
 - Email: [4zv4l@protonmail.com](mailto:4zv4l@protonmail.com)
 - Github: [github.com/4zv4l](https://github.com/4zv4l)
-- CV: *Coming Soon...*
+- CV: [my cv](/assets/cv.pdf)
 
 > Currently taken by a ricecooker 🍚
