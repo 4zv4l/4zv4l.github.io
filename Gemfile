@@ -35,4 +35,3 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 # theme
 gem "jekyll-remote-theme"
 gem "jekyll-paginate"
-gem "jekyll-asciidoc"
