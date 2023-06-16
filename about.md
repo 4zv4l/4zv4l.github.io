@@ -4,6 +4,8 @@ title: About
 permalink: /about/
 ---
 
+![me](/assets/me.png)
+
 I am 4zv4l, student in cyber security in Namur.
 
 I specifically like coding low level or security oriented software.  
