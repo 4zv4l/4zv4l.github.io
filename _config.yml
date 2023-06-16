@@ -1,0 +1,29 @@
+title: 4zv4l@home
+email: 4zv4l@protonmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Simple website to share some simple posts
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+github_username: 4zv4l
+author:
+  name: 4zv4l
+
+remote_theme: chesterhow/tale
+permalink: /:year-:month-:day/:title.html
+paginate: 5
+plugins:
+  - jekyll-paginate
+  - jekyll-remote-theme
+  - jekyll-asciidoc
+
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
