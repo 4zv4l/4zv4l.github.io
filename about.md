@@ -17,7 +17,7 @@ I enjoy coding in:
 For low level or precise programming.
 - [Nim](https://nim-lang.org/)
 For quick or high level programming.
-- [Ruby](https://www.ruby-lang.org/en/)
+- [Perl](https://www.perl.org/)
 For really quick programming/scripting.
 
 But I still can code in Python, Bash, Powershell, C, SQL, PHP and Go :)
