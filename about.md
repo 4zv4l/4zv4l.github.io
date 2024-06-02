@@ -8,7 +8,7 @@ permalink: /about/
 
 I am 4zv4l, currently working as pentester and malware analyst in Hong Kong.
 
-I specifically like coding low level software and anything related to security.  
+I like coding low level software and anything related to security.  
 I also enjoy reverse engineering and bug bounty.  
 I am more a Linux person but can also administrate Windows infra.  
 
