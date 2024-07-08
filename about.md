@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-![me](/assets/me.png)
+![me](/assets/about/me.png)
 
 I am 4zv4l, currently working as pentester and malware analyst in Hong Kong.
 
@@ -23,6 +23,7 @@ For really quick programming/scripting.
 - Email: [4zv4l@protonmail.com](mailto:4zv4l@protonmail.com)
 - Github: [github.com/4zv4l](https://github.com/4zv4l)
 - Mastodon: [https://mastodon.social/@4zv4l](https://mastodon.social/@4zv4l)
-- CV: [cv](/assets/cv.pdf)
+- CV: [cv](/assets/about/cv.pdf)
+- GPG: [public.asc](/assets/about/public.asc)
 
 > Currently taken by a ricecooker 🍚
