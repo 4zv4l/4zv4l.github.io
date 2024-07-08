@@ -18,10 +18,10 @@ To manage my containers I use [portainer community edition](https://www.portaine
 
 The interface looks like this:
 
-![portainer dashboard](/assets/portainer_dashboard.png)
+![portainer dashboard](/assets/2023-04-26-My-homelab/portainer_dashboard.png)
 > portainer dashboard
 
-![portainer containers](/assets/portainer_containers.png)
+![portainer containers](/assets/2023-04-26-My-homelab/portainer_containers.png)
 > portainer containers
 
 On the screenshot we can see the services I run:
@@ -52,7 +52,7 @@ Home page.
 
 My Homarr home page looks like this:
 
-![Homarr Home Page](/assets/homarr_home_page.png)
+![Homarr Home Page](/assets/2023-04-26-My-homelab/homarr_home_page.png)
 > Homarr Home Page
 
 Since I don't know much `docker-compose` I used a tool called [autocompose](https://github.com/Red5d/docker-autocompose).  
