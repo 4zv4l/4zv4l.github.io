@@ -17,7 +17,7 @@ I enjoy coding in:
 For low level or precise programming.
 - [Nim](https://nim-lang.org/)
 For quick or high level programming.
-- [Perl](https://www.perl.org/)
+- [Raku](https://raku.org/)
 For really quick programming/scripting.
 
 - Email: [4zv4l@protonmail.com](mailto:4zv4l@protonmail.com)
