@@ -22,7 +22,7 @@ For really quick programming/scripting.
 
 - Email: [4zv4l@protonmail.com](mailto:4zv4l@protonmail.com)
 - Github: [github.com/4zv4l](https://github.com/4zv4l)
-- Mastodon: [https://mastodon.social/@4zv4l](https://mastodon.social/@4zv4l)
+- Mastodon: [https://gts.kendell.lexiz.xyz/@4zv4l](https://gts.kendell.lexiz.xyz/@4zv4l)
 - CV: [cv](/assets/about/cv.pdf)
 - GPG: [public.asc](/assets/about/public.asc)
 
