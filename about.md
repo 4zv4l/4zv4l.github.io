@@ -23,7 +23,7 @@ For really quick programming/scripting.
 - Email:    [sibl@lexiz.xyz](mailto:sibl@lexiz.xyz)
 - Github:   [github.com/4zv4l](https://github.com/4zv4l)
 - Mastodon: [gts.kendell.lexiz.xyz/@4zv4l](https://gts.kendell.lexiz.xyz/@4zv4l)
-- SimpleX:  [@4zv4l](https://smp16.simplex.im/a#11KZGapkAEsbKYDeFeMOWcF26xOKOEviDZbInXINDHc)
+- SimpleX:  [@sibl](https://smp10.simplex.im/a#O6o6OHEW_IpFIQ3_uTDgA8X45Sps1w3AoJXxy6v8410)
 - Matrix:   [@sibl:lexiz.xyz](https://matrix.to/#/@sibl:lexiz.xyz)
 - CV:       [cv](/assets/about/cv.pdf)
 - PGP:      [17AC 7DE0 DA28 80AE E90F  1460 5451 BB72 E67D 88FC](https://keys.openpgp.org/search?q=17AC+7DE0+DA28+80AE+E90F++1460+5451+BB72+E67D+88FC)
