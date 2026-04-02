@@ -15,7 +15,7 @@ I am more a Linux person but can also administrate Windows infra.
 I enjoy coding in:
 - [Zig](https://ziglang.org/)
 For low level or precise programming.
-- [Nim](https://nim-lang.org/)
+- [Nim](https://nim-lang.org/) / [Go](https://go.dev)
 For quick or high level programming.
 - [Raku](https://raku.org/)
 For really quick programming/scripting.
