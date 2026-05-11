@@ -1,0 +1,19 @@
+baseURL: 'https://lexiz.xyz'
+appendPort: false
+disablePathToLower: true
+languageCode: en-us
+title: 4zv4l@home
+theme: tale
+
+params:
+  author:
+    name: 4zv4l
+
+menu:
+  main:
+    - name: "Posts"
+      url: "/posts/"
+      weight: 1
+    - name: "About"
+      url: "/about/"
+      weight: 2

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+		
+		
+		
+		<meta property="og:url" content="https://lexiz.xyz/posts/2023-04-25-Discovered-thor/">
+  <meta property="og:site_name" content="4zv4l@home">
+  <meta property="og:title" content="Discovered Thor">
+  <meta property="og:description" content="A Ruby library allowing to easily create command line tool.
+Today I discovered Thor with this comment on Reddit.
+It is super easy to install, just run: gem install thor
+Then to use it, simple command line tool:
+#!/bin/ruby require &#39;thor&#39; class SayHello &lt; Thor desc &#34;greet [NAME]&#34;, &#34;greet using [NAME]&#34; def greet(name) puts &#34;Hi #{name} !&#34; end # without this it shows an ugly warning on error def self.exit_on_failure? true end end SayHello.start ARGV If you run the script with no argument you will get:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-04-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-04-25T00:00:00+00:00">
+    <meta property="article:tag" content="Programming">
+    <meta property="article:tag" content="Cli">
+
+	
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Discovered Thor &middot; 4zv4l@home</title>
+
+		
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts.css">
+		
+		<link rel="icon" href="/favicon.ico"/>
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="4zv4l@home" />
+
+		<script src="/js/darkmode.js"></script>
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					
+						<h2 class="nav-title">4zv4l@home</h2>
+					
+				</a>
+				<ul>
+    
+    
+        <li>
+            <a href="/posts/">
+                
+                <span>Posts</span>
+                
+            </a>
+        </li>
+    
+        <li>
+            <a href="/about/">
+                
+                <span>About</span>
+                
+            </a>
+        </li>
+    
+</ul>
+			</div>
+		</nav>
+<div id="darkModeToggle" onclick="toggleDarkMode()">
+  &#9680; 
+</div>
+
+        
+
+<main>
+	
+
+
+        <div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        4zv4l
+        <br>
+        <span>on&nbsp;</span><time datetime="2023-04-25 00:00:00 &#43;0000 UTC">April 25, 2023</time>
+</div>
+
+		<h1 class="post-title">Discovered Thor</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>A Ruby library allowing to easily create command line tool.</p>
+<p>Today I discovered <a href="http://whatisthor.com/">Thor</a> with <a href="https://www.reddit.com/r/ruby/comments/2omroo/comment/cmonpdd/?utm_source=share&amp;utm_medium=web2x&amp;context=3">this comment</a> on Reddit.</p>
+<p>It is super easy to install, just run:
+<code>gem install thor</code></p>
+<p>Then to use it, simple command line tool:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/ruby</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>require <span style="color:#e6db74">&#39;thor&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SayHello</span> <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">Thor</span>
+</span></span><span style="display:flex;"><span>    desc <span style="color:#e6db74">&#34;greet [NAME]&#34;</span>, <span style="color:#e6db74">&#34;greet using [NAME]&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">greet</span>(name)
+</span></span><span style="display:flex;"><span>        puts <span style="color:#e6db74">&#34;Hi </span><span style="color:#e6db74">#{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74"> !&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># without this it shows an ugly warning on error</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">.</span><span style="color:#a6e22e">exit_on_failure?</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SayHello</span><span style="color:#f92672">.</span>start <span style="color:#66d9ef">ARGV</span>
+</span></span></code></pre></div><p>If you run the script with no argument you will get:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>➜ ruby /tmp/say_hello.rb
+</span></span><span style="display:flex;"><span>Commands:
+</span></span><span style="display:flex;"><span>  thor.rb greet <span style="color:#f92672">[</span>NAME<span style="color:#f92672">]</span>    <span style="color:#75715e"># greet using [NAME]</span>
+</span></span><span style="display:flex;"><span>  thor.rb help <span style="color:#f92672">[</span>COMMAND<span style="color:#f92672">]</span>  <span style="color:#75715e"># Describe available commands or one specific command</span>
+</span></span></code></pre></div><p>If you run it with <code>greet</code> option but no argument you will get:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>➜ ruby /tmp/thor.rb greet
+</span></span><span style="display:flex;"><span>ERROR: <span style="color:#e6db74">&#34;thor.rb greet&#34;</span> was called with no arguments
+</span></span><span style="display:flex;"><span>Usage: <span style="color:#e6db74">&#34;thor.rb greet [NAME]&#34;</span>
+</span></span></code></pre></div><p>And finally if you run it as it is intended to be ran:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>➜ ruby /tmp/thor.rb greet 4zv4l
+</span></span><span style="display:flex;"><span>Hi 4zv4l !
+</span></span></code></pre></div><p>I think this is really handy and allows to create quick command line tool without worrying about writing all the <code>options</code> and <code>arguments</code> parsing etc.
+It allows to directly focus on the action of the tool rather than the <del>packaging</del>.</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/posts/2022-10-17-Basic-coding/" class="left arrow">&#8592;</a>
+		<a href="/posts/2023-04-25-Discovered-jekyll/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+</main>
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2026-05-11 10:24:06.516039994 &#43;0800 HKT m=&#43;0.045490724">2026</time> 4zv4l. Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

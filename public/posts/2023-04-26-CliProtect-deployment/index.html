@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+		
+		
+		
+		<meta property="og:url" content="https://lexiz.xyz/posts/2023-04-26-CliProtect-deployment/">
+  <meta property="og:site_name" content="4zv4l@home">
+  <meta property="og:title" content="CliProtect Deployment">
+  <meta property="og:description" content="Today, the deployment of CliProtect was completed successfully. However, during the testing phase, we found an issue with the rdpclip.exe process. If this process was already running before my injector was executed, it caused a conflict.
+I did not see that during the testing phase since between every attempt I was logged out not simply disconnected (which keeps processes running). But on that server the users aren’t directly logged out, there is a delay between the disconnection and the log out action.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-04-26T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-04-26T00:00:00+00:00">
+    <meta property="article:tag" content="Programming">
+    <meta property="article:tag" content="Windows">
+
+	
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>CliProtect Deployment &middot; 4zv4l@home</title>
+
+		
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts.css">
+		
+		<link rel="icon" href="/favicon.ico"/>
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="4zv4l@home" />
+
+		<script src="/js/darkmode.js"></script>
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					
+						<h2 class="nav-title">4zv4l@home</h2>
+					
+				</a>
+				<ul>
+    
+    
+        <li>
+            <a href="/posts/">
+                
+                <span>Posts</span>
+                
+            </a>
+        </li>
+    
+        <li>
+            <a href="/about/">
+                
+                <span>About</span>
+                
+            </a>
+        </li>
+    
+</ul>
+			</div>
+		</nav>
+<div id="darkModeToggle" onclick="toggleDarkMode()">
+  &#9680; 
+</div>
+
+        
+
+<main>
+	
+
+
+        <div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        4zv4l
+        <br>
+        <span>on&nbsp;</span><time datetime="2023-04-26 00:00:00 &#43;0000 UTC">April 26, 2023</time>
+</div>
+
+		<h1 class="post-title">CliProtect Deployment</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>Today, the deployment of <em>CliProtect</em> was completed successfully.
+However, during the testing phase, we found an issue with the rdpclip.exe process.
+If this process was already running before my injector was executed, it caused a conflict.</p>
+<p>I did not see that during the <em>testing phase</em> since between every attempt I was logged out not simply disconnected (which keeps processes running).
+But on that server the users aren&rsquo;t directly logged out, there is a delay between the disconnection and the log out action.</p>
+<p>The simple purpose of <em>CliProtect</em> is to monitor the <code>copy</code> and <code>paste</code> attempts during an <code>RDP Session</code>.
+Only text is allowed and you can easily configure multiple settings with a <code>json</code> file.
+I made it in Nim and that was quite a nice project to get familiar with the <code>WINAPI</code>, <code>hooking</code> and <code>dll injection</code>.</p>
+<blockquote>
+<p>I will soon post my report here about all that :)</p>
+</blockquote>
+<p>To resolve this issue, I had to figure out a way to kill the <code>rdpclip.exe</code> process before running my injector.
+Since there was no function available in the standard Nim library, I decided to use the execCmdEx function from the osproc module to run two commands:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>taskkill /F /T /IM foo.exe /FI <span style="color:#e6db74">&#34;USERNAME eq {username}&#34;</span>
+</span></span></code></pre></div><ul>
+<li>this command finds the process that needs to be killed</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>taskkill /F /T /IM {<span style="color:#66d9ef">process</span>} /FI <span style="color:#e6db74">&#34;USERNAME eq {username}&#34;</span>
+</span></span></code></pre></div><ul>
+<li>this command kills the process</li>
+</ul>
+<p>By running these two commands, I was able to kill the rdpclip.exe process before executing my injector,
+which will hopefully resolve the conflict, we will check tomorrow to see if it solves the issue.</p>
+<blockquote>
+<p>That is also important for my log system which requires the injector to be restarted to create a new log file for a new day.</p>
+</blockquote>
+<p><strong>edit</strong>: The deployment has been a success yesterday with the changes I showed up here :)</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/posts/2023-04-26-My-homelab/" class="left arrow">&#8592;</a>
+		<a href="/posts/2023-04-27-Music-fetch-tool/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+</main>
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2026-05-11 10:24:06.514917504 &#43;0800 HKT m=&#43;0.044368224">2026</time> 4zv4l. Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

