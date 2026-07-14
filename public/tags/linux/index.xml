@@ -1,54 +1,59 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Linux on 4zv4l@home</title>
-    <link>https://lexiz.xyz/tags/linux/</link>
-    <description>Recent content in Linux on 4zv4l@home</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 14 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://lexiz.xyz/tags/linux/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Raku 1</title>
-      <link>https://lexiz.xyz/posts/2025-08-14-Raku-1/</link>
-      <pubDate>Thu, 14 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://lexiz.xyz/posts/2025-08-14-Raku-1/</guid>
-      <description>&lt;p&gt;After a long break (again) I come back to write about &lt;code&gt;Raku&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I spent quite some time on &lt;code&gt;Ruby&lt;/code&gt; before moving to &lt;code&gt;Perl&lt;/code&gt;, why ? Because&#xA;&lt;code&gt;Perl&lt;/code&gt; is more likely to be installed on a device I get access to, and why not &lt;code&gt;Python&lt;/code&gt; ?&#xA;Because &lt;code&gt;Perl&lt;/code&gt; has better backward compatibility, I wont need to worry about whether its &lt;code&gt;Python2&lt;/code&gt; or &lt;code&gt;Python3&lt;/code&gt; and which subversion etc.&lt;/p&gt;&#xA;&lt;p&gt;I heard about Raku before but didn&amp;rsquo;t really want to give it a try, it is neither as ubiquitous as Perl neither as famous as Python. But last week, I allowed myself to take a look and see how different the language is from Perl and if its worth it for me to spend time learning it and oh well it didn&amp;rsquo;t disappoint.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Janet</title>
-      <link>https://lexiz.xyz/posts/2024-07-07-Janet/</link>
-      <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://lexiz.xyz/posts/2024-07-07-Janet/</guid>
-      <description>&lt;p&gt;After a long time (almost a year!) I am writing again. It took me some time to&#xA;get fully installed in Hong Kong (I moved from Belgium to Hong Kong on July 18).&lt;/p&gt;&#xA;&lt;p&gt;I enjoyed 3 months of &amp;ldquo;holiday&amp;rdquo; there while looking for a job and now I am fully installed !&lt;/p&gt;&#xA;&lt;p&gt;Anyway, this (very short) post is about a nice language I discovered few months ago named Janet (yes like in &lt;em&gt;The Good Place&lt;/em&gt;).&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Perl One Liner</title>
-      <link>https://lexiz.xyz/posts/2023-12-07-Perl-one-liner/</link>
-      <pubDate>Thu, 07 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://lexiz.xyz/posts/2023-12-07-Perl-one-liner/</guid>
-      <description>&lt;p&gt;Today I had to add a list of users to a service (&lt;code&gt;knowbe4&lt;/code&gt;).&#xA;I could have done it manually but I decided to use Perl to do it which (I think) made me gain a lot of time.&lt;/p&gt;&#xA;&lt;p&gt;Instead of checking the current subscribed users, see which one to delete and which one to add manually (would have taken a lot of time since there are a lot of users already and even more users to add).&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>CTF Mr Robot 1</title>
-      <link>https://lexiz.xyz/posts/2023-05-22-CTF-Mr-Robot-1/</link>
-      <pubDate>Mon, 22 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://lexiz.xyz/posts/2023-05-22-CTF-Mr-Robot-1/</guid>
-      <description>&lt;p&gt;Simple writeup about the CTF &lt;code&gt;Mr Robot 1&lt;/code&gt;. (Root-Me version)&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Based on the show, Mr. Robot.&#xA;This VM has three keys hidden in different locations. Your goal is to find all three. Each key is progressively difficult to find.&#xA;The VM isn&amp;rsquo;t too difficult. There isn&amp;rsquo;t any advanced exploitation or reverse engineering. The level is considered beginner-intermediate.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;first-flag&#34;&gt;First flag&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Go to &lt;code&gt;url&lt;/code&gt;/robots.txt&#xA;&lt;ul&gt;&#xA;&lt;li&gt;fsocity.dic (wordlist for later)&lt;/li&gt;&#xA;&lt;li&gt;key-1-of-3.txt (first flag)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Go to &lt;code&gt;url&lt;/code&gt;/key-1-of-3.txt&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Yeah! You got the first one. You&amp;rsquo;re on the right way! Go on!&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>My Homelab</title>
-      <link>https://lexiz.xyz/posts/2023-04-26-My-homelab/</link>
-      <pubDate>Wed, 26 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>https://lexiz.xyz/posts/2023-04-26-My-homelab/</guid>
-      <description>&lt;p&gt;Simply presenting my &lt;code&gt;homelab&lt;/code&gt; and the services running on it.&lt;/p&gt;&#xA;&lt;p&gt;My homelab setup is really simple:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Zimaboard 832&lt;/li&gt;&#xA;&lt;li&gt;512gb SSD&lt;/li&gt;&#xA;&lt;li&gt;Debian 11&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;For the services I run them inside containers for simplicity and security.&#xA;To manage my containers I use &lt;a href=&#34;https://www.portainer.io/&#34;&gt;portainer community edition&lt;/a&gt; which itself runs in a container.&lt;/p&gt;&#xA;&lt;p&gt;The interface looks like this:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://lexiz.xyz/assets/2023-04-26-My-homelab/portainer_dashboard.png&#34; alt=&#34;portainer dashboard&#34;&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;portainer dashboard&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://lexiz.xyz/assets/2023-04-26-My-homelab/portainer_containers.png&#34; alt=&#34;portainer containers&#34;&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;portainer containers&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;On the screenshot we can see the services I run:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Basic Command Line</title>
-      <link>https://lexiz.xyz/posts/2021-03-25-Basic-command-line/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>https://lexiz.xyz/posts/2021-03-25-Basic-command-line/</guid>
-      <description>&lt;p&gt;Little tutorial about the command line :)&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;translated quickly and dirty with Google translate&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;to-know&#34;&gt;To know&lt;/h2&gt;&#xA;&lt;p&gt;The command line is a text interface between the user and the machine, the language used to interpret these commands may vary, under windows it will be &lt;code&gt;dos&lt;/code&gt; or &lt;code&gt;powershell&lt;/code&gt; and under linux it will often be &lt;code&gt;bash&lt;/code&gt; . But here we will focus on the command line under linux.&#xA;For the examples I will use &lt;code&gt;bash&lt;/code&gt; but that to work with other languages like &lt;code&gt;zsh&lt;/code&gt;, &lt;code&gt;fish&lt;/code&gt;, &lt;code&gt;ksh&lt;/code&gt;,…&#xA;We often represent a command with a &lt;code&gt;$&lt;/code&gt; in front of it to show that it is indeed a command to be done in a terminal.&#xA;In bash this will often be &lt;code&gt;username@hostname:current_folder$&lt;/code&gt;.&#xA;The bash configuration file is in your home file as &lt;code&gt;.bashrc&lt;/code&gt;. For ease of reference, the prompt in the examples will be like this &lt;code&gt;&amp;gt; &lt;/code&gt; but the prompt will probably end in a &lt;code&gt;$&lt;/code&gt;.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Linux on 4zv4l@home</title>
+		<link>http://localhost:1313/tags/linux/</link>
+		<description>Recent content in Linux on 4zv4l@home</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Thu, 14 Aug 2025 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Raku 1</title>
+				<link>http://localhost:1313/posts/2025-08-14-Raku-1/</link>
+				<pubDate>Thu, 14 Aug 2025 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/2025-08-14-Raku-1/</guid>
+				<description>&lt;p&gt;After a long break (again) I come back to write about &lt;code&gt;Raku&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I spent quite some time on &lt;code&gt;Ruby&lt;/code&gt; before moving to &lt;code&gt;Perl&lt;/code&gt;, why ? Because&#xA;&lt;code&gt;Perl&lt;/code&gt; is more likely to be installed on a device I get access to, and why not &lt;code&gt;Python&lt;/code&gt; ?&#xA;Because &lt;code&gt;Perl&lt;/code&gt; has better backward compatibility, I wont need to worry about whether its &lt;code&gt;Python2&lt;/code&gt; or &lt;code&gt;Python3&lt;/code&gt; and which subversion etc.&lt;/p&gt;&#xA;&lt;p&gt;I heard about Raku before but didn&amp;rsquo;t really want to give it a try, it is neither as ubiquitous as Perl neither as famous as Python. But last week, I allowed myself to take a look and see how different the language is from Perl and if its worth it for me to spend time learning it and oh well it didn&amp;rsquo;t disappoint.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Janet</title>
+				<link>http://localhost:1313/posts/2024-07-07-Janet/</link>
+				<pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/2024-07-07-Janet/</guid>
+				<description>&lt;p&gt;After a long time (almost a year!) I am writing again. It took me some time to&#xA;get fully installed in Hong Kong (I moved from Belgium to Hong Kong on July 18).&lt;/p&gt;&#xA;&lt;p&gt;I enjoyed 3 months of &amp;ldquo;holiday&amp;rdquo; there while looking for a job and now I am fully installed !&lt;/p&gt;&#xA;&lt;p&gt;Anyway, this (very short) post is about a nice language I discovered few months ago named Janet (yes like in &lt;em&gt;The Good Place&lt;/em&gt;).&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Perl One Liner</title>
+				<link>http://localhost:1313/posts/2023-12-07-Perl-one-liner/</link>
+				<pubDate>Thu, 07 Dec 2023 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/2023-12-07-Perl-one-liner/</guid>
+				<description>&lt;p&gt;Today I had to add a list of users to a service (&lt;code&gt;knowbe4&lt;/code&gt;).&#xA;I could have done it manually but I decided to use Perl to do it which (I think) made me gain a lot of time.&lt;/p&gt;&#xA;&lt;p&gt;Instead of checking the current subscribed users, see which one to delete and which one to add manually (would have taken a lot of time since there are a lot of users already and even more users to add).&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>CTF Mr Robot 1</title>
+				<link>http://localhost:1313/posts/2023-05-22-CTF-Mr-Robot-1/</link>
+				<pubDate>Mon, 22 May 2023 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/2023-05-22-CTF-Mr-Robot-1/</guid>
+				<description>&lt;p&gt;Simple writeup about the CTF &lt;code&gt;Mr Robot 1&lt;/code&gt;. (Root-Me version)&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Based on the show, Mr. Robot.&#xA;This VM has three keys hidden in different locations. Your goal is to find all three. Each key is progressively difficult to find.&#xA;The VM isn&amp;rsquo;t too difficult. There isn&amp;rsquo;t any advanced exploitation or reverse engineering. The level is considered beginner-intermediate.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;first-flag&#34;&gt;First flag&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Go to &lt;code&gt;url&lt;/code&gt;/robots.txt&#xA;&lt;ul&gt;&#xA;&lt;li&gt;fsocity.dic (wordlist for later)&lt;/li&gt;&#xA;&lt;li&gt;key-1-of-3.txt (first flag)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Go to &lt;code&gt;url&lt;/code&gt;/key-1-of-3.txt&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Yeah! You got the first one. You&amp;rsquo;re on the right way! Go on!&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>My Homelab</title>
+				<link>http://localhost:1313/posts/2023-04-26-My-homelab/</link>
+				<pubDate>Wed, 26 Apr 2023 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/2023-04-26-My-homelab/</guid>
+				<description>&lt;p&gt;Simply presenting my &lt;code&gt;homelab&lt;/code&gt; and the services running on it.&lt;/p&gt;&#xA;&lt;p&gt;My homelab setup is really simple:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Zimaboard 832&lt;/li&gt;&#xA;&lt;li&gt;512gb SSD&lt;/li&gt;&#xA;&lt;li&gt;Debian 11&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;For the services I run them inside containers for simplicity and security.&#xA;To manage my containers I use &lt;a href=&#34;https://www.portainer.io/&#34;&gt;portainer community edition&lt;/a&gt; which itself runs in a container.&lt;/p&gt;&#xA;&lt;p&gt;The interface looks like this:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/assets/2023-04-26-My-homelab/portainer_dashboard.png&#34; alt=&#34;portainer dashboard&#34;&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;portainer dashboard&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/assets/2023-04-26-My-homelab/portainer_containers.png&#34; alt=&#34;portainer containers&#34;&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;portainer containers&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;On the screenshot we can see the services I run:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Basic Command Line</title>
+				<link>http://localhost:1313/posts/2021-03-25-Basic-command-line/</link>
+				<pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/2021-03-25-Basic-command-line/</guid>
+				<description>&lt;p&gt;Little tutorial about the command line :)&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;translated quickly and dirty with Google translate&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;to-know&#34;&gt;To know&lt;/h2&gt;&#xA;&lt;p&gt;The command line is a text interface between the user and the machine, the language used to interpret these commands may vary, under windows it will be &lt;code&gt;dos&lt;/code&gt; or &lt;code&gt;powershell&lt;/code&gt; and under linux it will often be &lt;code&gt;bash&lt;/code&gt; . But here we will focus on the command line under linux.&#xA;For the examples I will use &lt;code&gt;bash&lt;/code&gt; but that to work with other languages like &lt;code&gt;zsh&lt;/code&gt;, &lt;code&gt;fish&lt;/code&gt;, &lt;code&gt;ksh&lt;/code&gt;,…&#xA;We often represent a command with a &lt;code&gt;$&lt;/code&gt; in front of it to show that it is indeed a command to be done in a terminal.&#xA;In bash this will often be &lt;code&gt;username@hostname:current_folder$&lt;/code&gt;.&#xA;The bash configuration file is in your home file as &lt;code&gt;.bashrc&lt;/code&gt;. For ease of reference, the prompt in the examples will be like this &lt;code&gt;&amp;gt; &lt;/code&gt; but the prompt will probably end in a &lt;code&gt;$&lt;/code&gt;.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

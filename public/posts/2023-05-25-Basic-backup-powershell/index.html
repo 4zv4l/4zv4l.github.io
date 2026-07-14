@@ -1,99 +1,294 @@
 <!DOCTYPE html>
 <html lang="en-us">
-    <head>
-		
-		
-		
-		<meta property="og:url" content="https://lexiz.xyz/posts/2023-05-25-Basic-backup-powershell/">
-  <meta property="og:site_name" content="4zv4l@home">
-  <meta property="og:title" content="Basic Backup Powershell">
-  <meta property="og:description" content="Here is a basic backup script that I made from the powershell exam the second grade had today.
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Basic Backup Powershell | 4zv4l@home</title>
+<meta name="title" content="Basic Backup Powershell" />
+<meta name="description" content="Here is a basic backup script that I made from the powershell exam the second grade had today.
+&lt;#
+    .SYNOPSIS
+    Backup file from folder matching extension
+
+    .DESCRIPTION
+    Backup all the files from a &#39;WinPath&#39; that match the given &#39;FileExtension&#39;.
+    The &#39;Backup&#39; directory is created by default.
+    You can also &#39;SearchBackup&#39; in the &#39;Backup&#39; directory with a regex.
+
+    .PARAMETER WinPath
+    Path to the directory to search in
+
+    .PARAMETER FileExtension
+    Extension of files to backup
+
+    .PARAMETER Backup
+    Create Backup directory (true by default)
+
+    .PARAMETER SearchBackup
+    Search pattern in backed-up files (false by default)
+#&gt;
+
+param(
+    [Parameter(mandatory=$true)]
+    [string]$WinPath,
+
+    [Parameter(mandatory=$true)]
+    [string]$FileExtension,
+    
+    [bool]$Backup = $true,
+    [string]$SearchBackup
+)
+
+# check if the directory exists
+if (!(Test-Path -Path $WinPath -PathType Container)) {
+    Write-Host &#34;&#39;$WinPath&#39; does not exist or is not a directory&#34;
+    exit 1
+}
+
+# if SearchBackup then show files matching and quit
+if ($SearchBackup -ne &#39;&#39;) {
+    if (!(Test-Path -Path &#34;$WinPath&#34; -PathType Container)) {
+        Write-Host &#34;&#39;$WinPath&#39; does not exist or is not a directory&#34;
+        exit 2
+    }
+    Get-ChildItem -Path &#34;$WinPath/Backup&#34; -File | ForEach-Object {
+        if ($_.Name -match $FileExtension) {
+            Write-Host &#34;$_&#34;
+        }
+    }
+    exit
+}
+
+# create the Backup directory
+if ($Backup) {
+    $null = New-Item -Path &#34;$WinPath/Backup&#34; -ItemType Directory -Force
+}
+
+# add all files matching the extension to the Backup directory
+$count = 0
+Get-ChildItem -Path $WinPath –Recurse -File | ForEach-Object {
+    if ($_.Extension -eq $FileExtension -and $_.DirectoryName -cnotmatch &#34;Backup&#34;) {
+        Move-Item -Path $_ -Destination &#34;$WinPath/Backup&#34;
+        $count &#43;= 1
+    }
+}
+Write-Host &#34;$count file(s) backed-up&#34;
+I think it is mostly self explanatory^^" />
+<meta name="keywords" content="programming,windows,cli,powershell," />
+
+
+<meta property="og:url" content="http://localhost:1313/posts/2023-05-25-Basic-backup-powershell/">
+	<meta property="og:site_name" content="4zv4l@home">
+	<meta property="og:title" content="Basic Backup Powershell">
+	<meta property="og:description" content="Here is a basic backup script that I made from the powershell exam the second grade had today.
 &lt;# .SYNOPSIS Backup file from folder matching extension .DESCRIPTION Backup all the files from a &#39;WinPath&#39; that match the given &#39;FileExtension&#39;. The &#39;Backup&#39; directory is created by default. You can also &#39;SearchBackup&#39; in the &#39;Backup&#39; directory with a regex. .PARAMETER WinPath Path to the directory to search in .PARAMETER FileExtension Extension of files to backup .PARAMETER Backup Create Backup directory (true by default) .PARAMETER SearchBackup Search pattern in backed-up files (false by default) #&gt; param( [Parameter(mandatory=$true)] [string]$WinPath, [Parameter(mandatory=$true)] [string]$FileExtension, [bool]$Backup = $true, [string]$SearchBackup ) # check if the directory exists if (!(Test-Path -Path $WinPath -PathType Container)) { Write-Host &#34;&#39;$WinPath&#39; does not exist or is not a directory&#34; exit 1 } # if SearchBackup then show files matching and quit if ($SearchBackup -ne &#39;&#39;) { if (!(Test-Path -Path &#34;$WinPath&#34; -PathType Container)) { Write-Host &#34;&#39;$WinPath&#39; does not exist or is not a directory&#34; exit 2 } Get-ChildItem -Path &#34;$WinPath/Backup&#34; -File | ForEach-Object { if ($_.Name -match $FileExtension) { Write-Host &#34;$_&#34; } } exit } # create the Backup directory if ($Backup) { $null = New-Item -Path &#34;$WinPath/Backup&#34; -ItemType Directory -Force } # add all files matching the extension to the Backup directory $count = 0 Get-ChildItem -Path $WinPath –Recurse -File | ForEach-Object { if ($_.Extension -eq $FileExtension -and $_.DirectoryName -cnotmatch &#34;Backup&#34;) { Move-Item -Path $_ -Destination &#34;$WinPath/Backup&#34; $count &#43;= 1 } } Write-Host &#34;$count file(s) backed-up&#34; I think it is mostly self explanatory^^">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2023-05-25T00:00:00+00:00">
-    <meta property="article:modified_time" content="2023-05-25T00:00:00+00:00">
-    <meta property="article:tag" content="Programming">
-    <meta property="article:tag" content="Windows">
-    <meta property="article:tag" content="Cli">
-    <meta property="article:tag" content="Powershell">
-
-	
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-		<title>Basic Backup Powershell &middot; 4zv4l@home</title>
-
-		
-		<link rel="stylesheet" href="/css/style.css">
-		<link rel="stylesheet" href="/css/fonts.css">
-		
-		<link rel="icon" href="/favicon.ico"/>
-		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-		
-		<link href="" rel="alternate" type="application/rss+xml" title="4zv4l@home" />
-
-		<script src="/js/darkmode.js"></script>
-	</head>
-
-    <body>
-        		<nav class="nav">
-			<div class="nav-container">
-				<a href="/">
-					
-						<h2 class="nav-title">4zv4l@home</h2>
-					
-				</a>
-				<ul>
-    
-    
-        <li>
-            <a href="/posts/">
-                
-                <span>Posts</span>
-                
-            </a>
-        </li>
-    
-        <li>
-            <a href="/about/">
-                
-                <span>About</span>
-                
-            </a>
-        </li>
-    
-</ul>
-			</div>
-		</nav>
-<div id="darkModeToggle" onclick="toggleDarkMode()">
-  &#9680; 
-</div>
-
-        
-
-<main>
-	
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2023-05-25T00:00:00+00:00">
+		<meta property="article:modified_time" content="2023-05-25T00:00:00+00:00">
+		<meta property="article:tag" content="Programming">
+		<meta property="article:tag" content="Windows">
+		<meta property="article:tag" content="Cli">
+		<meta property="article:tag" content="Powershell">
 
 
-        <div class="post">
-		<div class="post-info">
-    <span>Written by</span>
-        4zv4l
-        <br>
-        <span>on&nbsp;</span><time datetime="2023-05-25 00:00:00 &#43;0000 UTC">May 25, 2023</time>
-</div>
 
-		<h1 class="post-title">Basic Backup Powershell</h1>
-<div class="post-line"></div>
 
-		
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Basic Backup Powershell">
+	<meta name="twitter:description" content="Here is a basic backup script that I made from the powershell exam the second grade had today.
+&lt;# .SYNOPSIS Backup file from folder matching extension .DESCRIPTION Backup all the files from a &#39;WinPath&#39; that match the given &#39;FileExtension&#39;. The &#39;Backup&#39; directory is created by default. You can also &#39;SearchBackup&#39; in the &#39;Backup&#39; directory with a regex. .PARAMETER WinPath Path to the directory to search in .PARAMETER FileExtension Extension of files to backup .PARAMETER Backup Create Backup directory (true by default) .PARAMETER SearchBackup Search pattern in backed-up files (false by default) #&gt; param( [Parameter(mandatory=$true)] [string]$WinPath, [Parameter(mandatory=$true)] [string]$FileExtension, [bool]$Backup = $true, [string]$SearchBackup ) # check if the directory exists if (!(Test-Path -Path $WinPath -PathType Container)) { Write-Host &#34;&#39;$WinPath&#39; does not exist or is not a directory&#34; exit 1 } # if SearchBackup then show files matching and quit if ($SearchBackup -ne &#39;&#39;) { if (!(Test-Path -Path &#34;$WinPath&#34; -PathType Container)) { Write-Host &#34;&#39;$WinPath&#39; does not exist or is not a directory&#34; exit 2 } Get-ChildItem -Path &#34;$WinPath/Backup&#34; -File | ForEach-Object { if ($_.Name -match $FileExtension) { Write-Host &#34;$_&#34; } } exit } # create the Backup directory if ($Backup) { $null = New-Item -Path &#34;$WinPath/Backup&#34; -ItemType Directory -Force } # add all files matching the extension to the Backup directory $count = 0 Get-ChildItem -Path $WinPath –Recurse -File | ForEach-Object { if ($_.Extension -eq $FileExtension -and $_.DirectoryName -cnotmatch &#34;Backup&#34;) { Move-Item -Path $_ -Destination &#34;$WinPath/Backup&#34; $count &#43;= 1 } } Write-Host &#34;$count file(s) backed-up&#34; I think it is mostly self explanatory^^">
 
-		<p>Here is a basic backup script that I made from the <code>powershell</code> exam the second grade had today.</p>
+
+
+
+	<meta itemprop="name" content="Basic Backup Powershell">
+	<meta itemprop="description" content="Here is a basic backup script that I made from the powershell exam the second grade had today.
+&lt;# .SYNOPSIS Backup file from folder matching extension .DESCRIPTION Backup all the files from a &#39;WinPath&#39; that match the given &#39;FileExtension&#39;. The &#39;Backup&#39; directory is created by default. You can also &#39;SearchBackup&#39; in the &#39;Backup&#39; directory with a regex. .PARAMETER WinPath Path to the directory to search in .PARAMETER FileExtension Extension of files to backup .PARAMETER Backup Create Backup directory (true by default) .PARAMETER SearchBackup Search pattern in backed-up files (false by default) #&gt; param( [Parameter(mandatory=$true)] [string]$WinPath, [Parameter(mandatory=$true)] [string]$FileExtension, [bool]$Backup = $true, [string]$SearchBackup ) # check if the directory exists if (!(Test-Path -Path $WinPath -PathType Container)) { Write-Host &#34;&#39;$WinPath&#39; does not exist or is not a directory&#34; exit 1 } # if SearchBackup then show files matching and quit if ($SearchBackup -ne &#39;&#39;) { if (!(Test-Path -Path &#34;$WinPath&#34; -PathType Container)) { Write-Host &#34;&#39;$WinPath&#39; does not exist or is not a directory&#34; exit 2 } Get-ChildItem -Path &#34;$WinPath/Backup&#34; -File | ForEach-Object { if ($_.Name -match $FileExtension) { Write-Host &#34;$_&#34; } } exit } # create the Backup directory if ($Backup) { $null = New-Item -Path &#34;$WinPath/Backup&#34; -ItemType Directory -Force } # add all files matching the extension to the Backup directory $count = 0 Get-ChildItem -Path $WinPath –Recurse -File | ForEach-Object { if ($_.Extension -eq $FileExtension -and $_.DirectoryName -cnotmatch &#34;Backup&#34;) { Move-Item -Path $_ -Destination &#34;$WinPath/Backup&#34; $count &#43;= 1 } } Write-Host &#34;$count file(s) backed-up&#34; I think it is mostly self explanatory^^">
+	<meta itemprop="datePublished" content="2023-05-25T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2023-05-25T00:00:00+00:00">
+	<meta itemprop="wordCount" content="249">
+	<meta itemprop="keywords" content="Programming,Windows,Cli,Powershell">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--blockquote-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+  .highlight pre,
+  .code pre {
+    min-width: 100%;
+    width: max-content;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>4zv4l@home</h2>
+</a>
+<nav>
+<a href="/posts/">Posts</a>
+
+</nav>
+</header>
+  <main>
+
+<content>
+  <p>Here is a basic backup script that I made from the <code>powershell</code> exam the second grade had today.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e">&lt;#
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    .</span><span style="color:#e6db74">SYNOPSIS</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Backup file from folder matching extension
@@ -163,25 +358,27 @@
 </span></span><span style="display:flex;"><span>Write-Host <span style="color:#e6db74">&#34;</span>$count<span style="color:#e6db74"> file(s) backed-up&#34;</span>
 </span></span></code></pre></div><p>I think it is mostly self explanatory^^</p>
 
-
-		
-	</div>
-
-	<div class="pagination">
-		<a href="/posts/2023-05-22-CTF-Mr-Robot-1/" class="left arrow">&#8592;</a>
-		<a href="/posts/2023-12-07-Perl-one-liner/" class="right arrow">&#8594;</a>
-
-		<a href="#" class="top">Top</a>
-	</div>
-</main>
+</content>
 
 
-        		<footer>
-			
-			<span>
-			&copy; <time datetime="2026-05-11 10:24:06.51499579 &#43;0800 HKT m=&#43;0.044446520">2026</time> 4zv4l. Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
-			</span>
-		</footer>
 
-    </body>
+<p>
+  
+  <a href="http://localhost:1313/tags/programming/">#Programming</a>
+  
+  <a href="http://localhost:1313/tags/windows/">#Windows</a>
+  
+  <a href="http://localhost:1313/tags/cli/">#Cli</a>
+  
+  <a href="http://localhost:1313/tags/powershell/">#Powershell</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
 </html>

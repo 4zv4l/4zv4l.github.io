@@ -1,100 +1,238 @@
 <!DOCTYPE html>
 <html lang="en-us">
-    <head>
-		
-		
-		
-		<meta property="og:url" content="https://lexiz.xyz/posts/2021-03-25-Basic-command-line/">
-  <meta property="og:site_name" content="4zv4l@home">
-  <meta property="og:title" content="Basic Command Line">
-  <meta property="og:description" content="Little tutorial about the command line :)
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Basic Command Line | 4zv4l@home</title>
+<meta name="title" content="Basic Command Line" />
+<meta name="description" content="Little tutorial about the command line :)
+
+translated quickly and dirty with Google translate
+
+To know
+The command line is a text interface between the user and the machine, the language used to interpret these commands may vary, under windows it will be dos or powershell and under linux it will often be bash . But here we will focus on the command line under linux.
+For the examples I will use bash but that to work with other languages like zsh, fish, ksh,…
+We often represent a command with a $ in front of it to show that it is indeed a command to be done in a terminal.
+In bash this will often be username@hostname:current_folder$.
+The bash configuration file is in your home file as .bashrc. For ease of reference, the prompt in the examples will be like this &gt;  but the prompt will probably end in a $." />
+<meta name="keywords" content="programming,linux,cli,bash," />
+
+
+<meta property="og:url" content="http://localhost:1313/posts/2021-03-25-Basic-command-line/">
+	<meta property="og:site_name" content="4zv4l@home">
+	<meta property="og:title" content="Basic Command Line">
+	<meta property="og:description" content="Little tutorial about the command line :)
 translated quickly and dirty with Google translate
 To know The command line is a text interface between the user and the machine, the language used to interpret these commands may vary, under windows it will be dos or powershell and under linux it will often be bash . But here we will focus on the command line under linux. For the examples I will use bash but that to work with other languages like zsh, fish, ksh,… We often represent a command with a $ in front of it to show that it is indeed a command to be done in a terminal. In bash this will often be username@hostname:current_folder$. The bash configuration file is in your home file as .bashrc. For ease of reference, the prompt in the examples will be like this &gt; but the prompt will probably end in a $.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2021-03-25T00:00:00+00:00">
-    <meta property="article:modified_time" content="2021-03-25T00:00:00+00:00">
-    <meta property="article:tag" content="Programming">
-    <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="Cli">
-    <meta property="article:tag" content="Bash">
-
-	
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-		<title>Basic Command Line &middot; 4zv4l@home</title>
-
-		
-		<link rel="stylesheet" href="/css/style.css">
-		<link rel="stylesheet" href="/css/fonts.css">
-		
-		<link rel="icon" href="/favicon.ico"/>
-		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-		
-		<link href="" rel="alternate" type="application/rss+xml" title="4zv4l@home" />
-
-		<script src="/js/darkmode.js"></script>
-	</head>
-
-    <body>
-        		<nav class="nav">
-			<div class="nav-container">
-				<a href="/">
-					
-						<h2 class="nav-title">4zv4l@home</h2>
-					
-				</a>
-				<ul>
-    
-    
-        <li>
-            <a href="/posts/">
-                
-                <span>Posts</span>
-                
-            </a>
-        </li>
-    
-        <li>
-            <a href="/about/">
-                
-                <span>About</span>
-                
-            </a>
-        </li>
-    
-</ul>
-			</div>
-		</nav>
-<div id="darkModeToggle" onclick="toggleDarkMode()">
-  &#9680; 
-</div>
-
-        
-
-<main>
-	
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2021-03-25T00:00:00+00:00">
+		<meta property="article:modified_time" content="2021-03-25T00:00:00+00:00">
+		<meta property="article:tag" content="Programming">
+		<meta property="article:tag" content="Linux">
+		<meta property="article:tag" content="Cli">
+		<meta property="article:tag" content="Bash">
 
 
-        <div class="post">
-		<div class="post-info">
-    <span>Written by</span>
-        4zv4l
-        <br>
-        <span>on&nbsp;</span><time datetime="2021-03-25 00:00:00 &#43;0000 UTC">March 25, 2021</time>
-</div>
 
-		<h1 class="post-title">Basic Command Line</h1>
-<div class="post-line"></div>
 
-		
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Basic Command Line">
+	<meta name="twitter:description" content="Little tutorial about the command line :)
+translated quickly and dirty with Google translate
+To know The command line is a text interface between the user and the machine, the language used to interpret these commands may vary, under windows it will be dos or powershell and under linux it will often be bash . But here we will focus on the command line under linux. For the examples I will use bash but that to work with other languages like zsh, fish, ksh,… We often represent a command with a $ in front of it to show that it is indeed a command to be done in a terminal. In bash this will often be username@hostname:current_folder$. The bash configuration file is in your home file as .bashrc. For ease of reference, the prompt in the examples will be like this &gt; but the prompt will probably end in a $.">
 
-		<p>Little tutorial about the command line :)</p>
+
+
+
+	<meta itemprop="name" content="Basic Command Line">
+	<meta itemprop="description" content="Little tutorial about the command line :)
+translated quickly and dirty with Google translate
+To know The command line is a text interface between the user and the machine, the language used to interpret these commands may vary, under windows it will be dos or powershell and under linux it will often be bash . But here we will focus on the command line under linux. For the examples I will use bash but that to work with other languages like zsh, fish, ksh,… We often represent a command with a $ in front of it to show that it is indeed a command to be done in a terminal. In bash this will often be username@hostname:current_folder$. The bash configuration file is in your home file as .bashrc. For ease of reference, the prompt in the examples will be like this &gt; but the prompt will probably end in a $.">
+	<meta itemprop="datePublished" content="2021-03-25T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2021-03-25T00:00:00+00:00">
+	<meta itemprop="wordCount" content="1467">
+	<meta itemprop="keywords" content="Programming,Linux,Cli,Bash">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--blockquote-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+  .highlight pre,
+  .code pre {
+    min-width: 100%;
+    width: max-content;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>4zv4l@home</h2>
+</a>
+<nav>
+<a href="/posts/">Posts</a>
+
+</nav>
+</header>
+  <main>
+
+<content>
+  <p>Little tutorial about the command line :)</p>
 <blockquote>
 <p>translated quickly and dirty with Google translate</p>
 </blockquote>
@@ -127,58 +265,58 @@ a mkdir parameter that tells it which tree to create</li>
 </blockquote>
 <h2 id="basic-commands">Basic commands</h2>
 <table>
-  <thead>
-      <tr>
-          <th style="text-align: left">command</th>
-          <th style="text-align: right">action</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">cd</td>
-          <td style="text-align: right">this move in the tree structure of your pc</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">ls</td>
-          <td style="text-align: right">list files and folders</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">mdir</td>
-          <td style="text-align: right">creates folder(s)</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">rmdir</td>
-          <td style="text-align: right">deletes a folder or folders</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">rm</td>
-          <td style="text-align: right">delete one or more files</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">nano/vim</td>
-          <td style="text-align: right">command line text editor</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">man</td>
-          <td style="text-align: right">show documentation about a command</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">vm</td>
-          <td style="text-align: right">allows you to move or rename one or more folders/files</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">cat</td>
-          <td style="text-align: right">show the contents of a file</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">wget</td>
-          <td style="text-align: right">allows to download a file from a url</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">history</td>
-          <td style="text-align: right">displays your order history</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th style="text-align: left">command</th>
+					<th style="text-align: right">action</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: left">cd</td>
+					<td style="text-align: right">this move in the tree structure of your pc</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">ls</td>
+					<td style="text-align: right">list files and folders</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">mdir</td>
+					<td style="text-align: right">creates folder(s)</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">rmdir</td>
+					<td style="text-align: right">deletes a folder or folders</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">rm</td>
+					<td style="text-align: right">delete one or more files</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">nano/vim</td>
+					<td style="text-align: right">command line text editor</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">man</td>
+					<td style="text-align: right">show documentation about a command</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">vm</td>
+					<td style="text-align: right">allows you to move or rename one or more folders/files</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">cat</td>
+					<td style="text-align: right">show the contents of a file</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">wget</td>
+					<td style="text-align: right">allows to download a file from a url</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">history</td>
+					<td style="text-align: right">displays your order history</td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="global-variables">Global variables</h2>
 <p>Variables in bash are denoted with a <code>$</code> in front.
@@ -241,49 +379,49 @@ In most cases the normal return value is 0.</p>
 <h2 id="exits-and-redirects">Exits and Redirects</h2>
 <p>In command line you have 2 main outputs which are <code>stdout</code> and <code>stderr</code>.</p>
 <table>
-  <thead>
-      <tr>
-          <th>name</th>
-          <th>description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>stdout</code></td>
-          <td>the display of text, the result of a command,…</td>
-      </tr>
-      <tr>
-          <td><code>stderr</code></td>
-          <td>error display</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>name</th>
+					<th>description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>stdout</code></td>
+					<td>the display of text, the result of a command,…</td>
+			</tr>
+			<tr>
+					<td><code>stderr</code></td>
+					<td>error display</td>
+			</tr>
+	</tbody>
 </table>
 <p>To redirect the result of a command, we use the characters <code>&lt;</code> and <code>&gt;</code>.</p>
 <table>
-  <thead>
-      <tr>
-          <th>redirect</th>
-          <th>description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>&gt;</td>
-          <td>redirect normal output to a file (remove content if already exists)</td>
-      </tr>
-      <tr>
-          <td>&gt;&gt;</td>
-          <td>redirects to a file but at the end of the one if (without deleting the content there)</td>
-      </tr>
-      <tr>
-          <td>2&gt;</td>
-          <td>redirect error output to a file</td>
-      </tr>
-      <tr>
-          <td>2&gt;&amp;1</td>
-          <td>redirect error output to normal output</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>redirect</th>
+					<th>description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>&gt;</td>
+					<td>redirect normal output to a file (remove content if already exists)</td>
+			</tr>
+			<tr>
+					<td>&gt;&gt;</td>
+					<td>redirects to a file but at the end of the one if (without deleting the content there)</td>
+			</tr>
+			<tr>
+					<td>2&gt;</td>
+					<td>redirect error output to a file</td>
+			</tr>
+			<tr>
+					<td>2&gt;&amp;1</td>
+					<td>redirect error output to normal output</td>
+			</tr>
+	</tbody>
 </table>
 <ul>
 <li>In most cases we redirect errors to a <code>log</code> file or to <code>/dev/null</code> which is nothing but a “black hole”, which you send to <code>/dev/ null</code> you will never find it again.</li>
@@ -312,22 +450,22 @@ To run a program in the background, just add a <code>&amp;</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; sleep 500&amp;
 </span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>1<span style="color:#f92672">]</span> <span style="color:#ae81ff">704414</span>
 </span></span></code></pre></div><table>
-  <thead>
-      <tr>
-          <th></th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>[1]</td>
-          <td>The job number</td>
-      </tr>
-      <tr>
-          <td>704414</td>
-          <td>the job PID</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>[1]</td>
+					<td>The job number</td>
+			</tr>
+			<tr>
+					<td>704414</td>
+					<td>the job PID</td>
+			</tr>
+	</tbody>
 </table>
 <ul>
 <li>the PID is the process number, it can be useful to know it to stop a process for example.</li>
@@ -350,24 +488,27 @@ You know how to redirect output to log files, text files and to the <em>black ho
 And you know how to manage jobs, programs in the background.
 Have fun!</p>
 
-
-		
-	</div>
-
-	<div class="pagination">
-		<a href="/posts/2022-10-17-Basic-coding/" class="right arrow">&#8594;</a>
-
-		<a href="#" class="top">Top</a>
-	</div>
-</main>
+</content>
 
 
-        		<footer>
-			
-			<span>
-			&copy; <time datetime="2026-05-11 10:24:06.515004778 &#43;0800 HKT m=&#43;0.044455508">2026</time> 4zv4l. Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
-			</span>
-		</footer>
 
-    </body>
+<p>
+  
+  <a href="http://localhost:1313/tags/programming/">#Programming</a>
+  
+  <a href="http://localhost:1313/tags/linux/">#Linux</a>
+  
+  <a href="http://localhost:1313/tags/cli/">#Cli</a>
+  
+  <a href="http://localhost:1313/tags/bash/">#Bash</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
 </html>

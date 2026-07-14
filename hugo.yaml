@@ -3,7 +3,8 @@ appendPort: false
 disablePathToLower: true
 languageCode: en-us
 title: 4zv4l@home
-theme: tale
+#theme: tale
+theme: hugo-bearblog
 
 params:
   author:
@@ -14,6 +15,6 @@ menu:
     - name: "Posts"
       url: "/posts/"
       weight: 1
-    - name: "About"
-      url: "/about/"
-      weight: 2
+#    - name: "About"
+#      url: "/about/"
+#      weight: 2
