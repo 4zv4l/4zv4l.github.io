@@ -197,8 +197,8 @@
 <body>
 <div id="content" class="content">
 <h1 class="title">Production Incident Triage &amp; Systems Assessment</h1>
-<div id="outline-container-orgdfbb0c2" class="outline-2">
-<h2 id="orgdfbb0c2"><span class="section-number-2">1.</span> Context</h2>
+<div id="outline-container-org9330afb" class="outline-2">
+<h2 id="org9330afb"><span class="section-number-2">1.</span> Context</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 This assessment is a live, practical technical evaluation of your sysadmin abilities.
@@ -213,8 +213,8 @@ You will be given root access to an ephemeral Linux instance running directly in
 </p>
 </div>
 </div>
-<div id="outline-container-org20e4df3" class="outline-2">
-<h2 id="org20e4df3"><span class="section-number-2">2.</span> Environment &amp; Access</h2>
+<div id="outline-container-org7cc8f02" class="outline-2">
+<h2 id="org7cc8f02"><span class="section-number-2">2.</span> Environment &amp; Access</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><b>Platform:</b> In-browser ephemeral Alpine Linux terminal (WASM/x86).</li>
@@ -224,20 +224,20 @@ You will be given root access to an ephemeral Linux instance running directly in
 </ul>
 </div>
 </div>
-<div id="outline-container-org3ee4ed4" class="outline-2">
-<h2 id="org3ee4ed4"><span class="section-number-2">3.</span> Incident 1: Disk Activity &amp; Task Scheduling</h2>
+<div id="outline-container-org1d25265" class="outline-2">
+<h2 id="org1d25265"><span class="section-number-2">3.</span> Incident 1: Disk Activity &amp; Task Scheduling</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orge40ef62" class="outline-3">
-<h3 id="orge40ef62"><span class="section-number-3">3.1.</span> Scenario</h3>
+<div id="outline-container-org35ffdd4" class="outline-3">
+<h3 id="org35ffdd4"><span class="section-number-3">3.1.</span> Scenario</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 The monitoring system has triggered a recurring disk activity alert. A log file located at <code>/var/log/deployment</code> was recently created and is receiving continuous automated writes.
 </p>
 </div>
 </div>
-<div id="outline-container-orgbbffaba" class="outline-3">
-<h3 id="orgbbffaba"><span class="section-number-3">3.2.</span> Requirements</h3>
+<div id="outline-container-org3bda535" class="outline-3">
+<h3 id="org3bda535"><span class="section-number-3">3.2.</span> Requirements</h3>
 <div class="outline-text-3" id="text-3-2">
 <ol class="org-ol">
 <li>Identify which process, file, or background scheduler is responsible for appending to <code>/var/log/deployment</code>.</li>
@@ -248,20 +248,20 @@ The monitoring system has triggered a recurring disk activity alert. A log file 
 </div>
 </div>
 </div>
-<div id="outline-container-org128de1a" class="outline-2">
-<h2 id="org128de1a"><span class="section-number-2">4.</span> Incident 2: Unauthorized Network Listener</h2>
+<div id="outline-container-orgfbaa541" class="outline-2">
+<h2 id="orgfbaa541"><span class="section-number-2">4.</span> Incident 2: Unauthorized Network Listener</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgb8336c7" class="outline-3">
-<h3 id="orgb8336c7"><span class="section-number-3">4.1.</span> Scenario</h3>
+<div id="outline-container-org8bc944a" class="outline-3">
+<h3 id="org8bc944a"><span class="section-number-3">4.1.</span> Scenario</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 A pentester running <code>nmap</code> found an unexpected listening socket bound to <b>TCP port 444</b>.
 </p>
 </div>
 </div>
-<div id="outline-container-org899e54b" class="outline-3">
-<h3 id="org899e54b"><span class="section-number-3">4.2.</span> Requirements</h3>
+<div id="outline-container-org615a958" class="outline-3">
+<h3 id="org615a958"><span class="section-number-3">4.2.</span> Requirements</h3>
 <div class="outline-text-3" id="text-4-2">
 <ol class="org-ol">
 <li>Verify whether port 444 is currently open and bound on this host using native command-line utilities.</li>
@@ -272,20 +272,20 @@ A pentester running <code>nmap</code> found an unexpected listening socket bound
 </div>
 </div>
 </div>
-<div id="outline-container-org450b090" class="outline-2">
-<h2 id="org450b090"><span class="section-number-2">5.</span> Incident 3: Authentication Audit &amp; Network Path Analysis</h2>
+<div id="outline-container-org207441d" class="outline-2">
+<h2 id="org207441d"><span class="section-number-2">5.</span> Incident 3: Authentication Audit &amp; Network Path Analysis</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org968bf9a" class="outline-3">
-<h3 id="org968bf9a"><span class="section-number-3">5.1.</span> Scenario</h3>
+<div id="outline-container-org2b0eb7d" class="outline-3">
+<h3 id="org2b0eb7d"><span class="section-number-3">5.1.</span> Scenario</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 Multiple failed authentication events were recorded on this host. An audit log is available at <code>/var/log/auth_audit.log</code>.
 </p>
 </div>
 </div>
-<div id="outline-container-org5f52eca" class="outline-3">
-<h3 id="org5f52eca"><span class="section-number-3">5.2.</span> Requirements</h3>
+<div id="outline-container-org191e00a" class="outline-3">
+<h3 id="org191e00a"><span class="section-number-3">5.2.</span> Requirements</h3>
 <div class="outline-text-3" id="text-5-2">
 <ol class="org-ol">
 <li>Construct a one-liner command pipeline (so without opening a text editor) to:
@@ -303,8 +303,8 @@ Multiple failed authentication events were recorded on this host. An audit log i
 </div>
 </div>
 </div>
-<div id="outline-container-org6745d78" class="outline-2">
-<h2 id="org6745d78"><span class="section-number-2">6.</span> Evaluation Matrix</h2>
+<div id="outline-container-org713e85f" class="outline-2">
+<h2 id="org713e85f"><span class="section-number-2">6.</span> Evaluation Matrix</h2>
 <div class="outline-text-2" id="text-6">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -347,6 +347,10 @@ Multiple failed authentication events were recorded on this host. An audit log i
 </tr>
 </tbody>
 </table>
+
+<p>
+Access the test here: <a href="https://lexiz.xyz/terminal/?snapshot=interview-ready.bin.gz&amp;skip=time">https://lexiz.xyz/terminal/?snapshot=interview-ready.bin.gz&amp;skip=time</a>.
+</p>
 
 <p>
 <b>Good luck!</b>

