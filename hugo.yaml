@@ -3,8 +3,11 @@ appendPort: false
 disablePathToLower: true
 languageCode: en-us
 title: 4zv4l@home
-#theme: tale
 theme: hugo-bearblog
+
+server:
+  port: 8081
+  bind: '0.0.0.0'
 
 params:
   author:
@@ -15,6 +18,6 @@ menu:
     - name: "Posts"
       url: "/posts/"
       weight: 1
-    - name: "About"
-      url: "/about/"
-      weight: 2
+#    - name: "About"
+#      url: "/about/"
+#      weight: 2
