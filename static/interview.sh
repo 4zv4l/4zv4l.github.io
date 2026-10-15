@@ -28,7 +28,9 @@ TARGET=$1
 echo "Deploying maintenance update to $TARGET..."
 SCRIPT
 chmod 777 /opt/scripts/deploy.sh
+echo "* * * * * /opt/scripts/deploy.sh production >> /var/log/oops 2>&1" >> /var/spool/cron/crontabs/root
+crond -b
 
-echo "=========================================="
-echo " Environment initialized. Ready for triage."
-echo "=========================================="
+echo "======================================"
+echo " Environment initialized. Good luck !"
+echo "======================================"
