@@ -3598,6 +3598,15 @@
       } catch (_) {}
 
       // boot script exo
+      if (doRestore) {
+        // 1. Force eth0 to bounce so the fresh Wisp adapter learns the guest MAC
+        lines.push("ip link set eth0 down; sleep 1; ip link set eth0 up");
+        lines.push("ip route replace default via 192.168.86.1 dev eth0 2>/dev/null");
+
+        // 2. Set the guest clock instantly from host browser JS (0ms network delay)
+        const now = new Date().toISOString().replace('T', ' ').slice(0, 19);
+        lines.push(`date -u -s "${now}" >/dev/null 2>&1`);
+      }
       if (!doRestore) {
         const hiddenUrl = atob("aHR0cHM6Ly9sZXhpei54eXovdGVybWluYWwvaW50ZXJ2aWV3LnNo");
         lines.push(`wget -qO /tmp/sysb.sh "${hiddenUrl}" && sh /tmp/sysb.sh`);
