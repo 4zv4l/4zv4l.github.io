@@ -25,10 +25,10 @@ mkdir -p /opt/scripts
 cat << 'SCRIPT' > /opt/scripts/deploy.sh
 #!/bin/sh
 TARGET=$1
-echo "Deploying maintenance update to $TARGET..."
+echo "$(date -Iseconds) Deploying maintenance update to $TARGET..."
 SCRIPT
 chmod 777 /opt/scripts/deploy.sh
-echo "* * * * * /opt/scripts/deploy.sh production >> /var/log/oops 2>&1" >> /var/spool/cron/crontabs/root
+echo "* * * * * /opt/scripts/deploy.sh production >> /var/log/deployment 2>&1" >> /var/spool/cron/crontabs/root
 crond -b
 
 echo "======================================"
