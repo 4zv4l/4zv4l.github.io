@@ -3,7 +3,7 @@
 
 echo "[+] Installing required software.."
 apk update
-apk add python3
+apk add python3 perl
 
 echo "[+] Generating logs..."
 awk 'BEGIN {
